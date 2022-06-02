@@ -1,12 +1,11 @@
 const api = {
     key: '169257ac30ede61e7544309220216e0a',
     base: "https://api.openweathermap.org/data/2.5/"
-} // figure out how to hide this later... why doesnt require dotenv work
+} 
 
 const searchbox = document.querySelector('.search-box');
 const switchBackground = document.querySelector('.switchBtnBg');
 const switchTemp = document.querySelector('.switchBtnTemp')
-
 
 
 switchBackground.addEventListener('click', (e) => {
@@ -16,9 +15,6 @@ switchBackground.addEventListener('click', (e) => {
         document.body.style.backgroundImage = 'url(bg.jpg)'
     }
 });
-
-
-
 
 
 searchbox.addEventListener('keypress', search);
