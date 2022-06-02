@@ -13,20 +13,24 @@
             </header>
             <main>
                 <section class="location">
-                    <div class="city">City</div>
-                    <div class="date">Date</div>
+                    <div class="city"></div>
+                    <div class="date"></div>
                 </section>
                 <div class="current">
-                    <div class="temp"><span>Temperature</span></div>
-                    <div class="weather">Weather</div>
-                    <div class="hi-low">High / Low</div>
+                    <div class="temp"><span></span></div>
+                    <div class="weather"></div>
+                    <div class="hi-low"></div>
                     <br/>
-                    <label class="switch">
-                        <input type="checkbox" class="switchBtn">
-                        <span class="slider round"></span>
-                    </label>
                 </div>
             </main>
+            <label class="switch">
+                <input type="checkbox" class="switchBtnTemp">
+                <span class="slider round"></span>
+            </label>
+            <label class="switch">
+                <input type="checkbox" class="switchBtnBg">
+                <span class="slider round"></span>
+            </label> 
         </div>
         <script type="module" src="index.js"></script>
     </body>
@@ -34,10 +38,3 @@
 
 
 
-<!--
-temperature: 87
-time: "2022-05-31T11:00"
-weathercode: 0
-winddirection: 309
-windspeed: 7.3 
--->

@@ -4,10 +4,13 @@ const api = {
 } // figure out how to hide this later... why doesnt require dotenv work
 
 const searchbox = document.querySelector('.search-box');
-const switchbtn = document.querySelector('.switchBtn');
+const switchBackground = document.querySelector('.switchBtnBg');
+const switchTemp = document.querySelector('.switchBtnTemp')
 
-switchbtn.addEventListener('click', (e) => {
-    if (switchbtn.checked == true){
+
+
+switchBackground.addEventListener('click', (e) => {
+    if (switchBackground.checked == true){
         document.body.style.backgroundImage = 'url(bg2.jpg)'
     } else {
         document.body.style.backgroundImage = 'url(bg.jpg)'
@@ -48,6 +51,21 @@ function displayResults (weather) {
 
     let hilow = document.querySelector('.hi-low');
     hilow.innerText = `${Math.round(weather.main.temp_min)}°F / ${Math.round(weather.main.temp_max)}°F`;
+
+    let celsius = Math.round((Math.round(weather.main.temp) -32) * 5/9);
+    let celsiusHiLo = Math.round((Math.round(weather.main.temp_min)-32) * 5/9) + '°C / ' + Math.round((Math.round(weather.main.temp_max) -32) *5/9) + ' °C';
+
+    
+
+    switchTemp.addEventListener('click', (e) =>{
+        if(switchTemp.checked == true){
+            temp.innerHTML = `${celsius}<span>°C</span>`
+            hilow.innerText = celsiusHiLo;
+        } else {
+            temp.innerHTML = `${Math.round(weather.main.temp)}<span>°F</span>`
+            hilow.innerText = `${Math.round(weather.main.temp_min)}°F / ${Math.round(weather.main.temp_max)}°F`;
+        }
+    })
 }
 
 function dateBuilder (d) {
