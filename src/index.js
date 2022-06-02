@@ -26,6 +26,7 @@ searchbox.addEventListener('keypress', search);
 function search(e) {
     if (e.keyCode == 13) {
     getResults(searchbox.value);
+    
     }
 }
 
@@ -47,7 +48,17 @@ function displayResults (weather) {
     temp.innerHTML = `${Math.round(weather.main.temp)}<span>°F</span>`;
 
     let weather_el = document.querySelector('.current .weather');
-    weather_el.innerText = weather.weather[0].main;
+    weather_el.innerText = weather.weather[0].description;
+
+    let weatherI = document.querySelector('.weatherI');
+    const {icon} = weather.weather[0];
+    let image = document.createElement('img')
+    image.src =`icons/${icon}.png`;
+    
+    if (weatherI.firstChild){
+        weatherI.removeChild(weatherI.firstChild)
+    }
+    weatherI.appendChild(image)
 
     let hilow = document.querySelector('.hi-low');
     hilow.innerText = `${Math.round(weather.main.temp_min)}°F / ${Math.round(weather.main.temp_max)}°F`;

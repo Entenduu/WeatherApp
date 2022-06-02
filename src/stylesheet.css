@@ -15,8 +15,10 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6));
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1));
 }
+
+
 
 header {
     display: flex;
@@ -56,14 +58,14 @@ main {
 
 .location .city {
     color: #FFF;
-    font-size: 32px;
+    font-size: 50px;
     font-weight: 500;
     margin-bottom: 5px;
 }
 
 .location .date {
     color: #FFF;
-    font-size: 16px;
+    font-size: 32px;
 }
 
 .current .temp {
