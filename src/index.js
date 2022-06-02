@@ -1,20 +1,33 @@
 const api = {
-    key: ,
+    key: '169257ac30ede61e7544309220216e0a',
     base: "https://api.openweathermap.org/data/2.5/"
 } // figure out how to hide this later... why doesnt require dotenv work
 
 const searchbox = document.querySelector('.search-box');
+const switchbtn = document.querySelector('.switchBtn');
+
+switchbtn.addEventListener('click', (e) => {
+    if (switchbtn.checked == true){
+        document.body.style.backgroundImage = 'url(bg2.jpg)'
+    } else {
+        document.body.style.backgroundImage = 'url(bg.jpg)'
+    }
+});
+
+
+
+
 
 searchbox.addEventListener('keypress', search);
 
-function search(evt) {
-    if (evt.keyCode == 13) {
+function search(e) {
+    if (e.keyCode == 13) {
     getResults(searchbox.value);
     }
 }
 
-function getResults(query) {
-    fetch(`${api.base}weather?q=${query}&units=imperial&APPID=${api.key}`)
+function getResults(searchbox) {
+    fetch(`${api.base}weather?q=${searchbox}&units=imperial&APPID=${api.key}`)
     .then(weather => weather.json())
     .then(displayResults);
 }
@@ -47,4 +60,4 @@ function dateBuilder (d) {
     let year = d.getFullYear();
 
     return `${day} ${date} ${month} ${year}`;
-}
+};
